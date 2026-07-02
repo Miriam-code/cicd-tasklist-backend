@@ -1,0 +1,6 @@
+projectKey=okidock-tasklist-backend
+serverUrl=https://sonarqube.cicd.kits.ext.educentre.fr
+serverVersion=26.6.0.123539
+dashboardUrl=https://sonarqube.cicd.kits.ext.educentre.fr/dashboard?id=okidock-tasklist-backend
+ceTaskId=cf51fb2c-c66b-4169-8e79-1b3759401e0f
+ceTaskUrl=https://sonarqube.cicd.kits.ext.educentre.fr/api/ce/task?id=cf51fb2c-c66b-4169-8e79-1b3759401e0f
