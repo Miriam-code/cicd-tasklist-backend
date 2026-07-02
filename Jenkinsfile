@@ -7,14 +7,10 @@ pipeline {
     }
     stages {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            steps { checkout scm }
         }
         stage('Install dependencies') {
-            steps {
-                sh 'npm ci'
-            }
+            steps { sh 'npm ci' }
         }
         stage('Generate Prisma client') {
             steps {
@@ -23,23 +19,17 @@ pipeline {
             }
         }
         stage('Unit tests') {
-            steps {
-                sh 'npm run test:coverage'
-            }
+            steps { sh 'npm run test:coverage' }
         }
         stage('Publish unit test reports') {
-            steps {
-                junit testResults: 'reports/junit.xml', allowEmptyResults: true
-            }
+            steps { junit testResults: 'reports/junit.xml', allowEmptyResults: true }
         }
         stage('E2E tests') {
-            steps {
-                sh 'npm run test:e2e:coverage'
-            }
+            steps { sh 'npm run test:e2e:coverage' }
         }
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('sonarqube-server-1') {
+                withSonarQubeEnv('sonarqube-okidock') {
                     withCredentials([string(credentialsId: 'okidock-sonar-token', variable: 'MY_SONAR_TOKEN')]) {
                         sh 'npx sonar-scanner -Dsonar.token=$MY_SONAR_TOKEN -Dsonar.testExecutionReportPaths='
                     }
@@ -90,8 +80,6 @@ pipeline {
         always {
             sh "docker logout || true"
             cleanWs()
-            
         }
     }
-    
 }
