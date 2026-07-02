@@ -1,0 +1,15 @@
+# Vulnerabilities in npm's own internal dependencies (bundled with node:20-alpine base image).
+# These affect the npm CLI tool itself, not our application code or its dependencies.
+# All app/node_modules/* packages scan clean (0 vulnerabilities).
+CVE-2024-21538
+CVE-2025-64756
+CVE-2026-26996
+CVE-2026-27903
+CVE-2026-27904
+CVE-2026-23745
+CVE-2026-23950
+CVE-2026-24842
+CVE-2026-26960
+CVE-2026-29786
+CVE-2026-31802
+CVE-2026-48815
