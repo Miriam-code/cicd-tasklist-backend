@@ -31,7 +31,12 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube-okidock') {
                     withCredentials([string(credentialsId: 'okidock-sonar-token', variable: 'MY_SONAR_TOKEN')]) {
-                        sh 'npx sonar-scanner -Dsonar.token=$MY_SONAR_TOKEN -Dsonar.testExecutionReportPaths='
+                        sh '''
+                            npx sonar-scanner \
+                              -Dsonar.host.url=https://sonarqube.cicd.kits.ext.educentre.fr \
+                              -Dsonar.token=$MY_SONAR_TOKEN \
+                              -Dsonar.testExecutionReportPaths=
+                        '''
                     }
                 }
             }
