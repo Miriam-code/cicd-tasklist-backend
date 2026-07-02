@@ -29,7 +29,7 @@ pipeline {
         }
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('sonarqube-okidock') {
+                withSonarQubeEnv('SonarQube') {
                     withCredentials([string(credentialsId: 'okidock-sonar-token', variable: 'MY_SONAR_TOKEN')]) {
                         sh '''
                             npx sonar-scanner \
